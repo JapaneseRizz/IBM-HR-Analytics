@@ -4,7 +4,7 @@
 
 IBM HR Analyticsデータセットを使用し、従業員の離職要因を分析しました。
 
-分析にはBigQuery(SQL)を使用し、結果をTableauで可視化しています。
+分析にはSQL(BigQuery)を使用し、結果をTableauで可視化しています。
 
 ## 使用技術
 
