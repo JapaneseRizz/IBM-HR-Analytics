@@ -1,4 +1,4 @@
-# IBM HR Analytics - Employee Attrition Analysis
+# IBM HR Analytics - 離職分析
 
 ## 概要
 
