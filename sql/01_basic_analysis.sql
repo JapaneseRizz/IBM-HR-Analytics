@@ -34,11 +34,3 @@ SELECT
     ) AS attrition_rate_percent
 FROM
     `sql-project-459910.IBM_HR_ANALYTICS.risyoku_kaggle`;
-
-
--- 4. 全体の平均年齢・平均月収
-SELECT
-    ROUND(AVG(Age), 1) AS avg_age,
-    ROUND(AVG(MonthlyIncome), 0) AS avg_monthly_income
-FROM
-    `sql-project-459910.IBM_HR_ANALYTICS.risyoku_kaggle`;
