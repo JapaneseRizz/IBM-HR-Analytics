@@ -1,6 +1,7 @@
--- IBM HR Analytics
--- 基本集計：社員数、離職状況、離職率、平均年齢、平均月収
-
+-- ============================================
+-- 01_basic.sql
+-- 全体の離職状況を確認する
+-- ============================================
 
 -- 1. 総社員数
 SELECT
@@ -24,10 +25,10 @@ ORDER BY
 -- 3. 全体離職率
 SELECT
     COUNT(*) AS total_employees,
-    COUNTIF(Attrition = 'Yes') AS attrition_count,
+    COUNTIF(Attrition = true) AS attrition_count,
     ROUND(
         SAFE_DIVIDE(
-            COUNTIF(Attrition = 'Yes'),
+            COUNTIF(Attrition = true),
             COUNT(*)
         ) * 100,
         2
