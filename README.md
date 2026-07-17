@@ -31,14 +31,18 @@ IBM HR Analytics Employee Attrition & Performance データセットを用いて
 ## ディレクトリ構成
 
 ```text
-sql/
-├── 01_basic.sql
-├── 02_department.sql
-├── 03_employee.sql
-├── 04_salary.sql
-├── 05_workstyle.sql
-├── 06_summary.sql
-└── 07_tableau.sql
+IBM-HR-Analytics/
+├── README.md
+├── sql/
+│   ├── 01_basic.sql
+│   ├── 02_department.sql
+│   ├── 03_employee.sql
+│   ├── 04_salary.sql
+│   ├── 05_workstyle.sql
+│   ├── 06_summary.sql
+│   └── 07_tableau.sql
+└── tableau/
+    └── dashboard.png
 ```
 
 ---
@@ -54,6 +58,21 @@ sql/
 | 05_workstyle.sql | 残業・満足度など勤務環境の分析 |
 | 06_summary.sql | 複数条件を組み合わせた離職傾向分析 |
 | 07_tableau.sql | Tableau用データ作成 |
+```
+
+---
+
+## 分析結果
+
+SQLによる分析結果をもとに、以下の観点から離職率が高い傾向にある社員層を整理します。
+
+- 部署・職種による違い
+- 年代や婚姻状況など社員属性による違い
+- 給与や勤続年数による違い
+- 残業や満足度など勤務状況による違い
+- 複数条件を組み合わせた場合の違い
+
+※ 分析完了後、具体的な数値と考察を追記予定です。
 
 ---
 
