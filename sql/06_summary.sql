@@ -93,78 +93,7 @@ ORDER BY
     total_employees DESC;
 
 
--- 4. 全体平均と比較した高離職率セグメントのランキング
-WITH company_summary AS (
-    SELECT
-        SAFE_DIVIDE(
-            COUNTIF(Attrition = 'Yes'),
-            COUNT(*)
-        ) AS overall_attrition_rate
-    FROM
-        `sql-project-459910.IBM_HR_ANALYTICS.risyoku_kaggle`
-),
-
-segment_summary AS (
-    SELECT
-        Department,
-        JobRole,
-        OverTime,
-        COUNT(*) AS total_employees,
-        COUNTIF(Attrition = 'Yes') AS attrition_count,
-        SAFE_DIVIDE(
-            COUNTIF(Attrition = 'Yes'),
-            COUNT(*)
-        ) AS attrition_rate
-    FROM
-        `sql-project-459910.IBM_HR_ANALYTICS.risyoku_kaggle`
-    GROUP BY
-        Department,
-        JobRole,
-        OverTime
-),
-
-filtered_segments AS (
-    SELECT
-        s.Department,
-        s.JobRole,
-        s.OverTime,
-        s.total_employees,
-        s.attrition_count,
-        s.attrition_rate,
-        c.overall_attrition_rate,
-        s.attrition_rate - c.overall_attrition_rate
-            AS difference_from_overall
-    FROM
-        segment_summary AS s
-    CROSS JOIN
-        company_summary AS c
-    WHERE
-        s.total_employees >= 10
-)
-
-SELECT
-    Department,
-    JobRole,
-    OverTime,
-    total_employees,
-    attrition_count,
-    ROUND(attrition_rate * 100, 2)
-        AS attrition_rate_percent,
-    ROUND(overall_attrition_rate * 100, 2)
-        AS overall_attrition_rate_percent,
-    ROUND(difference_from_overall * 100, 2)
-        AS difference_from_overall_percent,
-    RANK() OVER (
-        ORDER BY attrition_rate DESC
-    ) AS risk_rank
-FROM
-    filtered_segments
-ORDER BY
-    risk_rank,
-    total_employees DESC;
-
-
--- 5. 各部署で離職率が最も高いセグメント
+-- 4. 離職率が高い社員セグメントのランキング
 WITH segment_summary AS (
     SELECT
         Department,
@@ -190,8 +119,52 @@ SELECT
     OverTime,
     total_employees,
     attrition_count,
-    ROUND(attrition_rate * 100, 2)
-        AS attrition_rate_percent
+    ROUND(
+        attrition_rate * 100,
+        2
+    ) AS attrition_rate_percent,
+    RANK() OVER (
+        ORDER BY attrition_rate DESC
+    ) AS risk_rank
+FROM
+    segment_summary
+WHERE
+    total_employees >= 10
+ORDER BY
+    risk_rank,
+    total_employees DESC;
+
+
+-- 5. 各部署で離職率が最も高い社員セグメント
+WITH segment_summary AS (
+    SELECT
+        Department,
+        JobRole,
+        OverTime,
+        COUNT(*) AS total_employees,
+        COUNTIF(Attrition = 'Yes') AS attrition_count,
+        SAFE_DIVIDE(
+            COUNTIF(Attrition = 'Yes'),
+            COUNT(*)
+        ) AS attrition_rate
+    FROM
+        `sql-project-459910.IBM_HR_ANALYTICS.risyoku_kaggle`
+    GROUP BY
+        Department,
+        JobRole,
+        OverTime
+)
+
+SELECT
+    Department,
+    JobRole,
+    OverTime,
+    total_employees,
+    attrition_count,
+    ROUND(
+        attrition_rate * 100,
+        2
+    ) AS attrition_rate_percent
 FROM
     segment_summary
 WHERE
