@@ -28,10 +28,10 @@ SELECT
     OverTime,
     years_group,
     COUNT(*) AS total_employees,
-    COUNTIF(Attrition = 'Yes') AS attrition_count,
+    COUNTIF(Attrition = true) AS attrition_count,
     ROUND(
         SAFE_DIVIDE(
-            COUNTIF(Attrition = 'Yes'),
+            COUNTIF(Attrition = true),
             COUNT(*)
         ) * 100,
         2
@@ -52,10 +52,10 @@ SELECT
     OverTime,
     JobSatisfaction,
     COUNT(*) AS total_employees,
-    COUNTIF(Attrition = 'Yes') AS attrition_count,
+    COUNTIF(Attrition = true) AS attrition_count,
     ROUND(
         SAFE_DIVIDE(
-            COUNTIF(Attrition = 'Yes'),
+            COUNTIF(Attrition = true),
             COUNT(*)
         ) * 100,
         2
@@ -75,10 +75,10 @@ SELECT
     Department,
     OverTime,
     COUNT(*) AS total_employees,
-    COUNTIF(Attrition = 'Yes') AS attrition_count,
+    COUNTIF(Attrition = true) AS attrition_count,
     ROUND(
         SAFE_DIVIDE(
-            COUNTIF(Attrition = 'Yes'),
+            COUNTIF(Attrition = true),
             COUNT(*)
         ) * 100,
         2
@@ -100,9 +100,9 @@ WITH segment_summary AS (
         JobRole,
         OverTime,
         COUNT(*) AS total_employees,
-        COUNTIF(Attrition = 'Yes') AS attrition_count,
+        COUNTIF(Attrition = true) AS attrition_count,
         SAFE_DIVIDE(
-            COUNTIF(Attrition = 'Yes'),
+            COUNTIF(Attrition = true),
             COUNT(*)
         ) AS attrition_rate
     FROM
@@ -142,9 +142,9 @@ WITH segment_summary AS (
         JobRole,
         OverTime,
         COUNT(*) AS total_employees,
-        COUNTIF(Attrition = 'Yes') AS attrition_count,
+        COUNTIF(Attrition = true) AS attrition_count,
         SAFE_DIVIDE(
-            COUNTIF(Attrition = 'Yes'),
+            COUNTIF(Attrition = true),
             COUNT(*)
         ) AS attrition_rate
     FROM

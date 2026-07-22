@@ -12,10 +12,10 @@ SELECT
         ELSE '50代以上'
     END AS age_group,
     COUNT(*) AS total_employees,
-    COUNTIF(Attrition = 'Yes') AS attrition_count,
+    COUNTIF(Attrition = true) AS attrition_count,
     ROUND(
         SAFE_DIVIDE(
-            COUNTIF(Attrition = 'Yes'),
+            COUNTIF(Attrition = true),
             COUNT(*)
         ) * 100,
         2
@@ -37,10 +37,10 @@ ORDER BY
 SELECT
     Gender,
     COUNT(*) AS total_employees,
-    COUNTIF(Attrition = 'Yes') AS attrition_count,
+    COUNTIF(Attrition = true) AS attrition_count,
     ROUND(
         SAFE_DIVIDE(
-            COUNTIF(Attrition = 'Yes'),
+            COUNTIF(Attrition = true),
             COUNT(*)
         ) * 100,
         2
@@ -57,10 +57,10 @@ ORDER BY
 SELECT
     MaritalStatus,
     COUNT(*) AS total_employees,
-    COUNTIF(Attrition = 'Yes') AS attrition_count,
+    COUNTIF(Attrition = true) AS attrition_count,
     ROUND(
         SAFE_DIVIDE(
-            COUNTIF(Attrition = 'Yes'),
+            COUNTIF(Attrition = true),
             COUNT(*)
         ) * 100,
         2
@@ -77,10 +77,10 @@ ORDER BY
 SELECT
     BusinessTravel,
     COUNT(*) AS total_employees,
-    COUNTIF(Attrition = 'Yes') AS attrition_count,
+    COUNTIF(Attrition = true) AS attrition_count,
     ROUND(
         SAFE_DIVIDE(
-            COUNTIF(Attrition = 'Yes'),
+            COUNTIF(Attrition = true),
             COUNT(*)
         ) * 100,
         2

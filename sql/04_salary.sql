@@ -13,10 +13,10 @@ SELECT
         ELSE '12,000以上'
     END AS income_group,
     COUNT(*) AS total_employees,
-    COUNTIF(Attrition = 'Yes') AS attrition_count,
+    COUNTIF(Attrition = true) AS attrition_count,
     ROUND(
         SAFE_DIVIDE(
-            COUNTIF(Attrition = 'Yes'),
+            COUNTIF(Attrition = true),
             COUNT(*)
         ) * 100,
         2
@@ -39,10 +39,10 @@ SELECT
         ELSE '15年以上'
     END AS years_group,
     COUNT(*) AS total_employees,
-    COUNTIF(Attrition = 'Yes') AS attrition_count,
+    COUNTIF(Attrition = true) AS attrition_count,
     ROUND(
         SAFE_DIVIDE(
-            COUNTIF(Attrition = 'Yes'),
+            COUNTIF(Attrition = true),
             COUNT(*)
         ) * 100,
         2
@@ -59,10 +59,10 @@ ORDER BY
 SELECT
     YearsSinceLastPromotion,
     COUNT(*) AS total_employees,
-    COUNTIF(Attrition = 'Yes') AS attrition_count,
+    COUNTIF(Attrition = true) AS attrition_count,
     ROUND(
         SAFE_DIVIDE(
-            COUNTIF(Attrition = 'Yes'),
+            COUNTIF(Attrition = true),
             COUNT(*)
         ) * 100,
         2

@@ -7,10 +7,10 @@
 SELECT
     Department,
     COUNT(*) AS total_employees,
-    COUNTIF(Attrition = 'Yes') AS attrition_count,
+    COUNTIF(Attrition = true) AS attrition_count,
     ROUND(
         SAFE_DIVIDE(
-            COUNTIF(Attrition = 'Yes'),
+            COUNTIF(Attrition = true),
             COUNT(*)
         ) * 100,
         2
@@ -27,10 +27,10 @@ ORDER BY
 SELECT
     JobRole,
     COUNT(*) AS total_employees,
-    COUNTIF(Attrition = 'Yes') AS attrition_count,
+    COUNTIF(Attrition = true) AS attrition_count,
     ROUND(
         SAFE_DIVIDE(
-            COUNTIF(Attrition = 'Yes'),
+            COUNTIF(Attrition = true),
             COUNT(*)
         ) * 100,
         2
@@ -48,10 +48,10 @@ SELECT
     Department,
     JobRole,
     COUNT(*) AS total_employees,
-    COUNTIF(Attrition = 'Yes') AS attrition_count,
+    COUNTIF(Attrition = true) AS attrition_count,
     ROUND(
         SAFE_DIVIDE(
-            COUNTIF(Attrition = 'Yes'),
+            COUNTIF(Attrition = true),
             COUNT(*)
         ) * 100,
         2
