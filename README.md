@@ -129,7 +129,7 @@ IBM-HR-Analytics/
 SQLによる分析結果をもとに、従業員の離職状況を確認できるダッシュボードを作成しました。
 部署・職種・残業有無・性別のフィルターを使用し、各条件における社員数、離職者数、離職率の変化を確認できます。
 
-[Tableau Publicでダッシュボードを見る](ここにTableau PublicのURLを貼る)
+[Tableau Publicによるダッシュボード](https://public.tableau.com/app/profile/rizzrizz/viz/_17848609062410/sheet9)
 
 ![Employee Attrition Dashboard](tableau/離職分析ダッシュボード.png)
 ---
