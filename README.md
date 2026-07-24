@@ -2,7 +2,7 @@
 
 ## 概要
 
-IBM HR Analytics Employee Attrition & Performance データセットを用いて、
+IBM HR Analytics Employee Attrition & Performanceデータセットを用いて、
 従業員の離職状況をSQLとTableauで分析したポートフォリオです。
 
 ---
@@ -10,7 +10,6 @@ IBM HR Analytics Employee Attrition & Performance データセットを用いて
 ## 分析目的
 
 従業員の離職状況を把握し、部署・職種・社員属性・給与・勤務状況などの観点から、離職率との関連性を分析することを目的としています。
-
 本分析では、各項目を単独で比較するだけでなく、複数の条件を組み合わせることで、離職率が高い傾向にある社員層を確認します。
 
 ---
@@ -19,15 +18,16 @@ IBM HR Analytics Employee Attrition & Performance データセットを用いて
 
 | 技術 | 用途 |
 |------|------|
-| SQL(BigQuery) | データ抽出・集計・分析 |
+| SQL | データ抽出・集計・分析 |
+| BigQuery | SQLの実行・データ管理 |
 | Tableau | 分析結果の可視化・ダッシュボード作成 |
-| GitHub | SQLファイル・READMEの管理 |
+| GitHub | SQLファイル・README・成果物の管理 |
 
 ---
 
 ## 分析内容
 
-本プロジェクトでは、全体の離職状況を確認したうえで、部署・職種、社員属性、待遇、勤務状況の順に分析を進めます。
+本プロジェクトでは、全体の離職状況を確認したうえで、部署・職種、社員属性、給与・勤続年数、勤務状況、複数条件の組み合わせの順に分析を進めます。
 
 | ファイル | 分析内容 |
 |----------|----------|
@@ -37,7 +37,6 @@ IBM HR Analytics Employee Attrition & Performance データセットを用いて
 | `04_salary.sql` | 給与・勤続年数・昇進状況など待遇面と離職率の分析 |
 | `05_workstyle.sql` | 残業・満足度・ワークライフバランスなど勤務状況と離職率の分析 |
 | `06_summary.sql` | 複数条件を組み合わせた離職傾向の分析 |
-| `07_tableau.sql` | Tableauで使用する可視化用データセットの作成 |
 
 ---
 
@@ -53,9 +52,7 @@ IBM-HR-Analytics/
 │   ├── 04_salary.sql
 │   ├── 05_workstyle.sql
 │   ├── 06_summary.sql
-│   └── 07_tableau.sql
-└── tableau/
-    └── dashboard.png
+└── 離職分析ダッシュボード.png
 ```
 
 ---
