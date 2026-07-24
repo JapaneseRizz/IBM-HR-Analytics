@@ -126,17 +126,12 @@ IBM-HR-Analytics/
 
 ## Tableauダッシュボード
 
-SQLで作成した分析用データをTableauに取り込み、離職状況を確認できるダッシュボードを作成。
-主な可視化項目は下記となります。
+SQLによる分析結果をもとに、従業員の離職状況を確認できるダッシュボードを作成しました。
+部署・職種・残業有無・性別のフィルターを使用し、各条件における社員数、離職者数、離職率の変化を確認できます。
 
-- 全体離職率
-- 部署・職種別離職率
-- 年代別離職率
-- 給与帯別離職率
-- 残業有無別離職率
-- 仕事満足度別離職率
-[Tableau PublicのダッシュボードURL]
-(https://public.tableau.com/app/profile/rizzrizz/viz/_17848609062410/sheet9)
+[Tableau Publicでダッシュボードを見る](ここにTableau PublicのURLを貼る)
+
+![Employee Attrition Dashboard](tableau/離職分析ダッシュボード.png)
 ---
 
 ## データセット
