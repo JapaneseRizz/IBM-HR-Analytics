@@ -6,7 +6,7 @@
 -- 1. 年代別の離職状況
 SELECT
     CASE
-        WHEN Age < 30 THEN '20代以下'
+        WHEN Age < 30 THEN '20歳以下'
         WHEN Age < 40 THEN '30代'
         WHEN Age < 50 THEN '40代'
         ELSE '50代以上'
@@ -26,7 +26,7 @@ GROUP BY
     age_group
 ORDER BY
     CASE age_group
-        WHEN '20代以下' THEN 1
+        WHEN '20歳以下' THEN 1
         WHEN '30代' THEN 2
         WHEN '40代' THEN 3
         WHEN '50代以上' THEN 4
