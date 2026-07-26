@@ -26,8 +26,13 @@ FROM
 GROUP BY
     income_group
 ORDER BY
-    income_group;
-
+    CASE income_group
+        WHEN '3,000未満' THEN 1
+        WHEN '3,000～5,999' THEN 2
+        WHEN '6,000～8,999' THEN 3
+        WHEN '9,000～11,999' THEN 4
+        WHEN '12,000以上' THEN 5
+    END;
 
 -- 2. 勤続年数別の離職状況
 SELECT
@@ -52,7 +57,13 @@ FROM
 GROUP BY
     years_group
 ORDER BY
-    years_group;
+    CASE years_group
+        WHEN '3年未満' THEN 1
+        WHEN '3～4年' THEN 2
+        WHEN '5～9年' THEN 3
+        WHEN '10～14年' THEN 4
+        WHEN '15年以上' THEN 5
+    END;
 
 
 -- 3. 昇進からの経過年数別の離職状況
