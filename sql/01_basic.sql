@@ -6,7 +6,7 @@
 SELECT
     COUNT(*) AS total_employees,
     COUNTIF(Attrition = FALSE) AS active_employees,
-    COUNTIF(Attrition = TRUE) AS attrition_count,
+    COUNTIF(Attrition = TRUE) AS attrition_employees,
     ROUND(
         SAFE_DIVIDE(
             COUNTIF(Attrition = TRUE),
