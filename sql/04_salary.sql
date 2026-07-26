@@ -1,9 +1,21 @@
 -- ============================================
 -- 04_salary.sql
--- 給与・勤続年数ごとの離職状況を確認する
+-- 給与・勤続年数・昇進状況と離職率の関係を確認する
 -- ============================================
 
--- 1. 給与帯別の離職状況
+-- 1. 離職者・在籍者の平均月収比較
+SELECT
+    Attrition,
+    COUNT(*) AS employee_count,
+    ROUND(AVG(MonthlyIncome), 2) AS avg_monthly_income
+FROM
+    `sql-project-459910.IBM_HR_ANALYTICS.risyoku_kaggle`
+GROUP BY
+    Attrition
+ORDER BY
+    Attrition;
+
+-- 2. 給与帯別の離職状況
 SELECT
     CASE
         WHEN MonthlyIncome < 3000 THEN '3,000未満'
@@ -34,7 +46,7 @@ ORDER BY
         WHEN '12,000以上' THEN 5
     END;
 
--- 2. 勤続年数別の離職状況
+-- 3. 勤続年数別の離職状況
 SELECT
     CASE
         WHEN YearsAtCompany < 3 THEN '3年未満'
@@ -66,7 +78,7 @@ ORDER BY
     END;
 
 
--- 3. 昇進からの経過年数別の離職状況
+-- 4. 昇進からの経過年数別の離職状況
 SELECT
     YearsSinceLastPromotion,
     COUNT(*) AS total_employees,
@@ -84,16 +96,3 @@ GROUP BY
     YearsSinceLastPromotion
 ORDER BY
     YearsSinceLastPromotion;
-
-
--- 4. 離職者・在籍者の平均月収比較
-SELECT
-    Attrition,
-    COUNT(*) AS employee_count,
-    ROUND(AVG(MonthlyIncome), 2) AS avg_monthly_income
-FROM
-    `sql-project-459910.IBM_HR_ANALYTICS.risyoku_kaggle`
-GROUP BY
-    Attrition
-ORDER BY
-    Attrition;
